@@ -45,7 +45,7 @@ function App() {
   return (
     // all the routes
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
       
       <Switch>
         <Route exact path="/">

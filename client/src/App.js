@@ -23,6 +23,7 @@ import RequestServicePage from "./pages/RequestServicePage"
 import ServiceDeptPage from "./pages/ServiceDeptPage"
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
+import ContactPage from './pages/ContactPage';
 
 // importing components
 import Navbar from "./components/Navbar"
@@ -64,6 +65,9 @@ function App() {
        
         <Route exact path="/signup">
           <SignUpPage/>
+        </Route>
+        <Route exact path="/contact">
+          <ContactPage/>
         </Route>
         
       </Switch>

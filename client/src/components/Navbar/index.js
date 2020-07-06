@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../utils/API"
-// import logo1 from "../../logo1.png"
 import logo1 from "../../assets/images/logo1.png"
 
 

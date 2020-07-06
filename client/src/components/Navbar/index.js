@@ -14,10 +14,15 @@ export default function Navbar(props) {
             <nav>
                 <ul>
                     <li><img id="logo" src={logo1} alt="logo" height="50px" width="80px"></img></li>
-                    <li><a href="default.asp">Home</a></li>
-                    <li><a href="news.asp">News</a></li>
-                    <li><a href="contact.asp">Contact</a></li>
-                    <li><a href="about.asp">About</a></li>
+                    <li><a href="">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="">About</a></li>
+                    
                 </ul>
             </nav>
         </div>

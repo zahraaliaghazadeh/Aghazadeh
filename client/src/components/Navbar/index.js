@@ -4,6 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import logo1 from "../../assets/images/logo1.png"
 
+import { Button, Typography } from '@material-ui/core';
+
+
 
 export default function Navbar(props) {
 
@@ -20,6 +23,8 @@ export default function Navbar(props) {
                     <li><a href="/request">Request</a></li>
                     <li><a href="/signup">Sign Up</a></li>
                     <li><a href="/">About</a></li>
+                    <Button variant="contained" color="primary">
+                         SignUp/Login </Button>
                     
                 </ul>
             </nav>

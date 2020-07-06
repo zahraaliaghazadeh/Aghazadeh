@@ -37,6 +37,10 @@ export default function SplashPage() {
 
   return (
     <div>
+
+
+
+
       {/* sales */}
       <Card className={classes.root}>
         <CardContent>

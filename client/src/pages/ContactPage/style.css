@@ -1,0 +1,10 @@
+.contactCards{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+
+}
+
+#serviceContact , #salesContact{
+    background-color: thistle;
+}

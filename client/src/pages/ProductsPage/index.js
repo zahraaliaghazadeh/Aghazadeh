@@ -19,8 +19,133 @@ const useStyles = makeStyles({
 export default function ProductsPage() {
     const classes = useStyles();
     return (
- <div>
+ <div className="productCards">
+   {/* card 1 */}
       <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://place-hold.it/300"
+          title="place holder image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Cupper Tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           It is a good tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+         brand
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          $100 ۱۰۰۰۰ تومان
+          </Typography>
+          
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+       
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+{/* card 2 */}
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://place-hold.it/300"
+          title="place holder image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Cupper Tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           It is a good tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+         brand
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          $100 ۱۰۰۰۰ تومان
+          </Typography>
+          
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+       
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+{/* card 3 */}
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://place-hold.it/300"
+          title="place holder image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Cupper Tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           It is a good tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+         brand
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          $100 ۱۰۰۰۰ تومان
+          </Typography>
+          
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+       
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+{/* card 4 */}
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://place-hold.it/300"
+          title="place holder image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Cupper Tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           It is a good tube
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+         brand
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          $100 ۱۰۰۰۰ تومان
+          </Typography>
+          
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+       
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+{/* card 5 */}
+    <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}

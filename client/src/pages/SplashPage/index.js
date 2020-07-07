@@ -36,13 +36,11 @@ export default function SplashPage() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <div>
-
-
+    <div class="splashCards">
 
 
       {/* sales */}
-      <Card className={classes.root}>
+      <Card id="salesCard" className={classes.root}>
         <CardContent>
 
         <Typography variant="h5" component="h2">
@@ -57,7 +55,7 @@ export default function SplashPage() {
 
 
       {/* service */}
-      <Card className={classes.root}>
+      <Card id="serviceCard" className={classes.root}>
         <CardContent>
         
           <Typography variant="h5" component="h2">

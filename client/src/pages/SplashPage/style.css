@@ -1,0 +1,15 @@
+
+
+.splashCards{
+    align-content: center;
+    /* to bring the cards next to each other */
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    
+}
+
+#salesCard , #serviceCard{
+    background-color: slategrey;
+
+}

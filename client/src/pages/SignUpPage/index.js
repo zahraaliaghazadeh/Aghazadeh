@@ -8,42 +8,44 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
     },
-  }));
-  
+  },
+}));
+
 
 export default function SignUpPage() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-      <div>
-           <TextField
-          required
-          id="filled-required"
-          label="Required"
-          defaultValue="Name"
-          variant="filled"
-        /> <br></br>
-           <TextField
-          required
-          id="filled-required"
-          label="Required"
-          defaultValue="Email"
-          variant="filled"
-        /> <br></br>
-           <TextField
-          required
-          id="filled-required"
-          label="Required"
-          defaultValue="password"
-          variant="filled"
-        />
-      </div>
+  return (
+    <div className="signupDiv">
+      <TextField
+        required
+        id="filled-required"
+        label="Required"
+        defaultValue="Name"
+        variant="filled"
+      /> <br></br>
 
-        )
-    }
+      <TextField
+        required
+        id="filled-required"
+        label="Required"
+        defaultValue="Email"
+        variant="filled"
+      /> <br></br>
+      
+      <TextField
+        required
+        id="filled-required"
+        label="Required"
+        defaultValue="password"
+        variant="filled"
+      />
+    </div>
+
+  )
+}

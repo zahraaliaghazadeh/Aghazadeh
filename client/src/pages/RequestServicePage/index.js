@@ -9,8 +9,8 @@ import { TextareaAutosize } from '@material-ui/core';
 
 export default function RequestServicePage() {
     return (
-<div>
-<form  noValidate autoComplete="off">
+<div className="formRequestDiv">
+<form  className="formRequest" noValidate autoComplete="off">
       <div>
         <TextField required id="standard-required" label="Required" defaultValue="Name نام" /> <br></br>
         <TextField required id="standard-required" label="Required" defaultValue="Phone Number شماره تلفن" /> <br></br>

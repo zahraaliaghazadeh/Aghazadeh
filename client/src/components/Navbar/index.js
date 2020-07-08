@@ -22,7 +22,7 @@ export default function Navbar(props) {
                     <li><a href="/services">Services</a></li>
                     <li><a href="/request">Request</a></li>
                     <li><a href="/signup">Sign Up</a></li>
-                    <li><a href="/">About</a></li>
+                    <li><a href="/about">About</a></li>
                     <Button variant="contained" color="primary">
                          SignUp/Login </Button>
                     

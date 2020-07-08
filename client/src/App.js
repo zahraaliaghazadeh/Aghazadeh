@@ -11,6 +11,7 @@ import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
 import ContactPage from './pages/ContactPage';
 import AddProductPage from "./pages/AddProductPage"
+import AboutPage from "./pages/AboutPage"
 
 // importing components
 import Navbar from "./components/Navbar"
@@ -43,12 +44,16 @@ function App() {
         <Route exact path="/contact">
           <ContactPage/>
         </Route>
+        <Route exact path="/about">
+          <AboutPage />
+        </Route>
         <Route exact path="/admin/new">
           <AddProductPage />
         </Route>
         <Route exact path="*">
           <SplashPage />
         </Route>
+
       </Switch>
       <Footer/>
     </Router>

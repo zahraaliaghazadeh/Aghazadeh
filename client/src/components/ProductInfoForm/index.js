@@ -27,6 +27,7 @@ export default function ProductInfoForm() {
             ...productState, image: file.secure_url
             // largeImage: file.eager[0].secure_url
         });
+    }
 
 
     return (

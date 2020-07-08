@@ -6,7 +6,7 @@ router.route("/")
     .get(productsController.findAll)
     .post(productsController.create);
 
-// Product routes by ID: /api/post/:id
+// Product routes by ID: /api/product/:id
 router.route("/:id")
     .get(productsController.findById)
     .put(productsController.update)

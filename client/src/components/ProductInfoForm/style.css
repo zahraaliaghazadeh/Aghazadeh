@@ -1,0 +1,16 @@
+#ProductInfoForm {
+    text-align: center;
+}
+
+#ProductInfoForm #productImage {
+    display: none;
+}
+
+#ProductInfoForm #imgContainer {
+    width: 200px;
+    height: 200px;
+}
+
+#ProductInfoForm .input {
+    width: 50%;
+}

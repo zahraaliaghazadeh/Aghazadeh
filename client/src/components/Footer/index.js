@@ -8,10 +8,8 @@ export default function Footer(props) {
 
 
     return (
-        <div>
-     <footer className="footer">
-         <h3 id="copyRight">copy right 2020</h3>
-     </footer>
-        </div>
+        <footer className="footer">
+            <h3 id="copyRight">copy right 2020</h3>
+        </footer>
     );
 }

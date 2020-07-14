@@ -7,9 +7,13 @@ router.route("/")
     .post(productsController.create);
 
 // Product routes by ID: /api/product/:id
-router.route("/:id")
+router.route("/single/:id")
     .get(productsController.findById)
     .put(productsController.update)
     .delete(productsController.remove);
+
+// Product route for /api/product/search
+router.route("/search")
+    .get(productsController.search)
 
 module.exports = router;

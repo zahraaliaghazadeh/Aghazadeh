@@ -31,18 +31,18 @@ function App() {
           <ProductsPage />
         </Route>
         <Route exact path="/request">
-          <RequestServicePage/>
+          <RequestServicePage />
         </Route>
-        
+
         <Route exact path="/services">
           < ServiceDeptPage />
         </Route>
-       
+
         <Route exact path="/signup">
-          <SignUpPage/>
+          <SignUpPage />
         </Route>
         <Route exact path="/contact">
-          <ContactPage/>
+          <ContactPage />
         </Route>
         <Route exact path="/about">
           <AboutPage />
@@ -55,7 +55,7 @@ function App() {
         </Route>
 
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import { Button, Grid, TextField } from "@material-ui/core"
+import React, { useState } from "react";
+import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@material-ui/core"
 import "./style.css"
 
-export default function ProductInfoForm() {
-
+export default function ProductInfoForm(props) {
+    // const [info, setInfo] = useState(props.info);
 
 
     // Function to upload image on add product
@@ -23,10 +23,10 @@ export default function ProductInfoForm() {
         );
         const file = await res.json();
         console.log(file);
-        setProductState({
-            ...productState, image: file.secure_url
-            // largeImage: file.eager[0].secure_url
-        });
+        // setProductState({
+        //     ...productState, image: file.secure_url
+        //     // largeImage: file.eager[0].secure_url
+        // });
     }
 
 
@@ -34,14 +34,14 @@ export default function ProductInfoForm() {
         <form id="ProductInfoForm">
             <Grid container>
                 <Grid item xs={12}>
-                    <TextField required id="name" className="input" label="Product Name" />
+                    <TextField required id="name" className="input" label="Product Name" value={props.info ? props.info.name : ""} />
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField required id="brand" className="input" label="Brand" />
+                    <TextField required id="brand" className="input" label="Brand" value={props.info ? props.info.brand : ""} />
                 </Grid>
                 <Grid container item xs={12}>
-                    <Grid item xs={6}>
-                        <div id="imgContainer"></div>
+                    <Grid item xs={12} sm={6}>
+                        <div id="imgContainer"><img src={props.info ? props.info.picture : ""} alt={`${props.info ? props.info.name : ""} image`} /></div>
                         <input
                             accept="image/*"
                             id="productImage"
@@ -54,12 +54,33 @@ export default function ProductInfoForm() {
                             </Button>
                         </label>
                     </Grid>
-                    <Grid container item xs={6}>
+                    <Grid container item xs={12} sm={6}>
                         <Grid item xs={12}>
-                            <TextField required id="price" className="input" label="Price" />
+                            <TextField required id="price" className="input" label="Price" type="number" value={props.info ? props.info.price : ""} />
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField required id="quantity" className="input" label="Quantity" type="number" />
+                            <TextField required id="quantity" className="input" label="Quantity" type="number" value={props.info ? props.info.quantity : ""} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControl required className="input">
+                                <InputLabel id="categorySelect">Product Category</InputLabel>
+                                <Select
+                                    native
+                                    labelId="categorySelect"
+                                    id="categoryOptions"
+                                    value={props.info ? props.info.category : ""}
+                                    onChange={props.handleChange}
+                                >
+                                    <option aria-label="None" value="" />
+                                    <option value={"Cooling"}>Cooling</option>
+                                    <option value={"Washing"}>Washing</option>
+                                    <option value={"Other"}>Other</option>
+                                    {/* <MenuItem value={"Cooling"}>Cooling</MenuItem>
+                                    <MenuItem value={"Washing"}>Washing</MenuItem>
+                                    <MenuItem value={"Other"}>Other</MenuItem> */}
+                                </Select>
+                                <FormHelperText>Required</FormHelperText>
+                            </FormControl>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -70,12 +91,10 @@ export default function ProductInfoForm() {
                         label="Product Description"
                         multiline
                         rows={4}
+                        value={props.info ? props.info.description : ""}
                     />
                 </Grid>
             </Grid>
-
-
-
         </form>
     );
 }

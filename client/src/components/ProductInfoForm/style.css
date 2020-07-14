@@ -9,6 +9,8 @@
 #ProductInfoForm #imgContainer {
     width: 200px;
     height: 200px;
+    margin: 0 auto;
+    background-color: red;
 }
 
 #ProductInfoForm .input {

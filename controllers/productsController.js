@@ -33,5 +33,12 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    search: function (req, res) {
+        db.Product
+            .find({ name: new RegExp(req.body.search, "i") })
+            // .find( { name : { $regex : req.body.search, $options : 'i' } } )
+            .then(product => res.json(product))
+            .catch(err => res.status(422).json(err))
     }
 };

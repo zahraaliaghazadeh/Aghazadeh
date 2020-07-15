@@ -31,17 +31,18 @@ export default function ProductInfoForm(props) {
 
 
     return (
-        <form id="ProductInfoForm">
-            <Grid container>
+        // <form id="ProductInfoForm">
+            <Grid container id="ProductInfoForm">
                 <Grid item xs={12}>
-                    <TextField required id="name" className="input" label="Product Name" value={props.info ? props.info.name : ""} />
+                    <TextField required id="name" className="input" label="Product Name" name="name" value={props.name ? props.name : ""} onChange={props.handleInputChange}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField required id="brand" className="input" label="Brand" value={props.info ? props.info.brand : ""} />
+                    <TextField required id="brand" className="input" label="Brand" name="brand" value={props.brand ? props.brand : ""} onChange={props.handleInputChange}/>
                 </Grid>
                 <Grid container item xs={12}>
                     <Grid item xs={12} sm={6}>
-                        <div id="imgContainer"><img src={props.info ? props.info.picture : ""} alt={`${props.info ? props.info.name : ""} image`} /></div>
+                        {/* TODO: cloudinary inputchange */}
+                        <div id="imgContainer"><img src={props.picture ? props.picture : ""} alt={`${props.name ? props.name : ""} image`} /></div>
                         <input
                             accept="image/*"
                             id="productImage"
@@ -56,10 +57,10 @@ export default function ProductInfoForm(props) {
                     </Grid>
                     <Grid container item xs={12} sm={6}>
                         <Grid item xs={12}>
-                            <TextField required id="price" className="input" label="Price" type="number" value={props.info ? props.info.price : ""} />
+                            <TextField required id="price" className="input" label="Price" type="number" name="price" value={props.price ? props.price : ""} onChange={props.handleInputChange} />
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField required id="quantity" className="input" label="Quantity" type="number" value={props.info ? props.info.quantity : ""} />
+                            <TextField required id="quantity" className="input" label="Quantity" type="number" name="quantity" value={props.quantity ? props.quantity : ""} onChange={props.handleInputChange} />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl required className="input">
@@ -68,8 +69,9 @@ export default function ProductInfoForm(props) {
                                     native
                                     labelId="categorySelect"
                                     id="categoryOptions"
-                                    value={props.info ? props.info.category : ""}
-                                    onChange={props.handleChange}
+                                    name="category"
+                                    value={props.category ? props.category : ""}
+                                    onChange={props.handleInputChange}
                                 >
                                     <option aria-label="None" value="" />
                                     <option value={"Cooling"}>Cooling</option>
@@ -91,10 +93,12 @@ export default function ProductInfoForm(props) {
                         label="Product Description"
                         multiline
                         rows={4}
-                        value={props.info ? props.info.description : ""}
+                        name="description"
+                        value={props.description ? props.description : ""}
+                        onChange={props.handleInputChange}
                     />
                 </Grid>
             </Grid>
-        </form>
+        // </form>
     );
 }

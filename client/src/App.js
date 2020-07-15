@@ -47,9 +47,11 @@ function App() {
         <Route exact path="/about">
           <AboutPage />
         </Route>
-        <Route exact path="/admin/new">
-          <AddProductPage />
-        </Route>
+        <div id="adminContainer">
+          <Route exact path="/admin/new">
+            <AddProductPage />
+          </Route>
+        </div>
         <Route exact path="*">
           <SplashPage />
         </Route>

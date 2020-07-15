@@ -32,73 +32,79 @@ export default function ProductInfoForm(props) {
 
     return (
         // <form id="ProductInfoForm">
-            <Grid container id="ProductInfoForm">
-                <Grid item xs={12}>
-                    <TextField required id="name" className="input" label="Product Name" name="name" value={props.name ? props.name : ""} onChange={props.handleInputChange}/>
+        <Grid container id="ProductInfoForm" spacing={2} >
+            <Grid item xs={12}>
+                <TextField required id="name" className="input" label="Product Name" name="name" value={props.name ? props.name : ""} onChange={props.handleInputChange} />
+            </Grid>
+            <Grid item xs={12}>
+                <TextField required id="brand" className="input" label="Brand" name="brand" value={props.brand ? props.brand : ""} onChange={props.handleInputChange} />
+            </Grid>
+            <Grid container item xs={12}>
+                <Grid item xs={12} sm={6}>
+                    {/* TODO: cloudinary inputchange */}
+                    <label htmlFor="productImage">
+                        <div id="imgContainer">
+                            {props.picture
+                                ? <img src={props.picture ? props.picture : ""} alt={props.picture && props.name ? props.name + "image" : ""} />
+                                : <h3>Click to add a product image</h3>
+                            }
+                        </div>
+                    </label>
+                    <input
+                        accept="image/*"
+                        id="productImage"
+                        multiple
+                        type="file"
+                    />
+                    {/* {props.picture ? <Button variant="contained" color="primary" component="span">
+                        Add Product Image
+                        </Button>} */}
+                        
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField required id="brand" className="input" label="Brand" name="brand" value={props.brand ? props.brand : ""} onChange={props.handleInputChange}/>
-                </Grid>
-                <Grid container item xs={12}>
-                    <Grid item xs={12} sm={6}>
-                        {/* TODO: cloudinary inputchange */}
-                        <div id="imgContainer"><img src={props.picture ? props.picture : ""} alt={`${props.name ? props.name : ""} image`} /></div>
-                        <input
-                            accept="image/*"
-                            id="productImage"
-                            multiple
-                            type="file"
-                        />
-                        <label htmlFor="productImage">
-                            <Button variant="contained" color="primary" component="span">
-                                Add Product Image
-                            </Button>
-                        </label>
+                <Grid container item xs={12} sm={6}>
+                    <Grid item xs={12}>
+                        <TextField required id="price" className="input" label="Price" type="number" name="price" value={props.price ? props.price : ""} onChange={props.handleInputChange} />
                     </Grid>
-                    <Grid container item xs={12} sm={6}>
-                        <Grid item xs={12}>
-                            <TextField required id="price" className="input" label="Price" type="number" name="price" value={props.price ? props.price : ""} onChange={props.handleInputChange} />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField required id="quantity" className="input" label="Quantity" type="number" name="quantity" value={props.quantity ? props.quantity : ""} onChange={props.handleInputChange} />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControl required className="input">
-                                <InputLabel id="categorySelect">Product Category</InputLabel>
-                                <Select
-                                    native
-                                    labelId="categorySelect"
-                                    id="categoryOptions"
-                                    name="category"
-                                    value={props.category ? props.category : ""}
-                                    onChange={props.handleInputChange}
-                                >
-                                    <option aria-label="None" value="" />
-                                    <option value={"Cooling"}>Cooling</option>
-                                    <option value={"Washing"}>Washing</option>
-                                    <option value={"Other"}>Other</option>
-                                    {/* <MenuItem value={"Cooling"}>Cooling</MenuItem>
+                    <Grid item xs={12}>
+                        <TextField required id="quantity" className="input" label="Quantity" type="number" name="quantity" value={props.quantity ? props.quantity : ""} onChange={props.handleInputChange} />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <FormControl required className="input">
+                            <InputLabel id="categorySelect">Product Category</InputLabel>
+                            <Select
+                                native
+                                labelId="categorySelect"
+                                id="categoryOptions"
+                                name="category"
+                                value={props.category ? props.category : ""}
+                                onChange={props.handleInputChange}
+                            >
+                                <option aria-label="None" value="" />
+                                <option value={"Cooling"}>Cooling</option>
+                                <option value={"Washing"}>Washing</option>
+                                <option value={"Other"}>Other</option>
+                                {/* <MenuItem value={"Cooling"}>Cooling</MenuItem>
                                     <MenuItem value={"Washing"}>Washing</MenuItem>
                                     <MenuItem value={"Other"}>Other</MenuItem> */}
-                                </Select>
-                                <FormHelperText>Required</FormHelperText>
-                            </FormControl>
-                        </Grid>
+                            </Select>
+                            <FormHelperText>Required</FormHelperText>
+                        </FormControl>
                     </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        id="description"
-                        className="input"
-                        label="Product Description"
-                        multiline
-                        rows={4}
-                        name="description"
-                        value={props.description ? props.description : ""}
-                        onChange={props.handleInputChange}
-                    />
-                </Grid>
             </Grid>
+            <Grid item xs={12}>
+                <TextField
+                    id="description"
+                    className="input"
+                    label="Product Description"
+                    multiline
+                    rows={4}
+                    name="description"
+                    value={props.description ? props.description : ""}
+                    onChange={props.handleInputChange}
+                />
+            </Grid>
+        </Grid>
         // </form>
     );
 }

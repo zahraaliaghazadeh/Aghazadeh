@@ -7,10 +7,22 @@
 }
 
 #ProductInfoForm #imgContainer {
-    width: 200px;
-    height: 200px;
+    /* width: 400px;
+    height: 300px; */
+    width: 100%;
+    height: 90%;
     margin: 0 auto;
-    background-color: red;
+    border: 2px solid gainsboro;
+}
+
+#ProductInfoForm #imgContainer:hover {
+    cursor: pointer;
+}
+
+#ProductInfoForm #imgContainer h3 {
+    /* margin: 140px 0; */
+    margin: 20% 0;
+    color: rgb(161, 161, 161);
 }
 
 #ProductInfoForm .input {

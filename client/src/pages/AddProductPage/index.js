@@ -7,38 +7,63 @@ import "./style.css"
 export default function AddProductPage() {
     const [productInfo, setProductInfo] = useState({});
 
-    const handleInputChange = async event => {
+    const handleInputChange = async (event, remove) => {
         const { name, value } = event.target;
 
-        // const files = e.target.files;
-        // const data = new FormData();
-        // data.append("file", files[0]);
-        // // this data/preset is required by cloudinary (named sick fits in the cloudinary settings)
-        // data.append("upload_preset", "k0kdipbb");
-        // const res = await fetch(
-        //     "https://api.cloudinary.com/v1_1/dw69fw1u3/image/upload",
-        //     {
-        //         method: "POST",
-        //         body: data
+        if (remove) {
+            setProductInfo({ ...productInfo, picture: null });
+        }
+        else {
+            console.log("hi")
+            setProductInfo({ ...productInfo, [name]: name === "picture" ? event.target.files[0] : value });
+        }
+
+        // if (name === "picture") {
+        //     const file = e.target.files[0];
+
+        //     if (file) {
+        //         const reader = new FileReader();
+
+        //         reader.readAsDataURL(file)
+        //         reader.onload = () => setPicture(reader.result);
+        //         // setPicture(URL.createObjectURL(e.target.files[0]))
         //     }
-        // );
-        // const file = await res.json();
-        // console.log(file);
+        // }
+        // else {
+        //     setProductInfo({ ...productInfo, [name]: name === "picture" ? event.target.files[0] : value });
+        // }
+
+    }
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+
+        if (productInfo.picture) {
+            // const files = e.target.files;
+            const data = new FormData();
+            data.append("file", productInfo.picture);
+            // this data/preset is required by cloudinary (named sick fits in the cloudinary settings)
+            data.append("upload_preset", "k0kdipbb");
+            const res = await fetch(
+                "https://api.cloudinary.com/v1_1/dw69fw1u3/image/upload",
+                {
+                    method: "POST",
+                    body: data
+                }
+            );
+            const file = await res.json();
+            console.log(file);
+        }
+
         // setProductState({
         //     ...productState, image: file.secure_url
         //     // largeImage: file.eager[0].secure_url
         // });
 
-        setProductInfo({...productInfo, [name]: value});
-    }
+        // API.createProduct(productInfo)
+        //     .then(({ data }) => console.log(data))
+        //     .catch(err => console.log(err))
 
-    const handleSubmit = event => {
-        event.preventDefault();
-
-        API.createProduct(productInfo)
-            .then(({ data }) => console.log(data))
-            .catch(err => console.log(err))
-        
         setProductInfo({})
     }
 

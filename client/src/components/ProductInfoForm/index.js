@@ -1,32 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@material-ui/core"
 import "./style.css"
 
 export default function ProductInfoForm(props) {
-    // const [info, setInfo] = useState(props.info);
+    const [picture, setPicture] = useState();
+    // const [picture, setPicture] = useState();
+    // const [file, setFile] = useState();
+
+    // useEffect(() => {
+    //     if (!file) {
+    //         setPicture(undefined)
+    //         return
+    //     }
+
+    //     const objectUrl = URL.createObjectURL(file)
+    //     console.log(objectUrl)
+    //     setPicture(objectUrl)
+
+    //     // free memory when ever this component is unmounted
+    //     return () => URL.revokeObjectURL(objectUrl)
+    // }, [file])
+
+    useEffect(() => {
+        if (props.picture) {
+            const reader = new FileReader();
+
+            reader.readAsDataURL(props.picture)
+            reader.onload = () => setPicture(reader.result);
+         // setPicture(URL.createObjectURL(e.target.files[0]))
+        }
+        else {
+            setPicture();
+        }
+
+    }, [props.picture])
 
 
     // Function to upload image on add product
 
-    const uploadFile = async e => {
-        const files = e.target.files;
-        const data = new FormData();
-        data.append("file", files[0]);
-        // this data/preset is required by cloudinary (named sick fits in the cloudinary settings)
-        data.append("upload_preset", "k0kdipbb");
-        const res = await fetch(
-            "https://api.cloudinary.com/v1_1/dw69fw1u3/image/upload",
-            {
-                method: "POST",
-                body: data
-            }
-        );
-        const file = await res.json();
-        console.log(file);
-        // setProductState({
-        //     ...productState, image: file.secure_url
-        //     // largeImage: file.eager[0].secure_url
-        // });
+    // const uploadFile = async e => {
+    //     const file = e.target.files[0];
+
+    //     if (file) {
+    //         const reader = new FileReader();
+
+    //         reader.readAsDataURL(file)
+    //         reader.onload = () => setPicture(reader.result);
+    //         props.handleInputChange(e);
+    //      // setPicture(URL.createObjectURL(e.target.files[0]))
+    //     }
+    // }
+
+    const removeFile = e => {
+        // setPicture();
+        props.handleInputChange(e, "remove")
     }
 
 
@@ -41,25 +68,36 @@ export default function ProductInfoForm(props) {
             </Grid>
             <Grid container item xs={12}>
                 <Grid item xs={12} sm={6}>
-                    {/* TODO: cloudinary inputchange */}
-                    <label htmlFor="productImage">
-                        <div id="imgContainer">
-                            {props.picture
+                    <div id="imgContainer">
+                        {picture
+                            ? <img src={picture} alt={picture && props.name ? props.name + "image" : ""} />
+                            : <h3>Product Image Preview</h3>
+                        }
+                        {/* {props.picture
                                 ? <img src={props.picture ? props.picture : ""} alt={props.picture && props.name ? props.name + "image" : ""} />
                                 : <h3>Click to add a product image</h3>
-                            }
-                        </div>
-                    </label>
+                            } */}
+                    </div>
                     <input
                         accept="image/*"
                         id="productImage"
-                        multiple
+                        // multiple
                         type="file"
+                        name="picture"
+                        key={Math.random(1000)}
+                        onChange={props.handleInputChange}
+                        // onChange={uploadFile}
+                        hidden
                     />
-                    {/* {props.picture ? <Button variant="contained" color="primary" component="span">
-                        Add Product Image
-                        </Button>} */}
-                        
+                    <label htmlFor="productImage">
+                        <Button variant="contained" color="primary" component="span">
+                            {picture ? "Change Product Image" : "Add Product Image"}
+                        </Button>
+                    </label>
+                    {picture
+                        ? <Button variant="contained" color="primary" component="span" onClick={removeFile}>Remove Product Image</Button>
+                        : <></>
+                    }
                 </Grid>
                 <Grid container item xs={12} sm={6}>
                     <Grid item xs={12}>

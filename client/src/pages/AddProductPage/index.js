@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from '@material-ui/core';
 import ProductInfoForm from "../../components/ProductInfoForm"
 import API from "../../utils/API"
 import "./style.css"
@@ -68,9 +67,8 @@ export default function AddProductPage() {
     }
 
     return (
-        <form className="AddProductPage" onSubmit={handleSubmit}>
-            <ProductInfoForm {...productInfo} handleInputChange={handleInputChange} />
-            <Button variant="contained" type="submit">Add Product</Button>
-        </form>
+        <div className="AddProductPage">
+            <ProductInfoForm {...productInfo} formType="new" handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>
+        </div>
     );
 }

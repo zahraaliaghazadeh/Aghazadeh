@@ -12,5 +12,8 @@ export default {
     },
     deleteProduct: function (id) {
         return axios.delete("/api/product/single/" + id);
+    },
+    search: function (query) {
+        return axios.get("/api/product/search", query)
     }
 }

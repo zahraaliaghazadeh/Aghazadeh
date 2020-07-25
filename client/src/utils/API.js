@@ -7,7 +7,10 @@ export default {
     createProduct: function (product) {
         return axios.post("/api/product", product);
     },
-    updateProduct: function (id) {
-        return axios.put("/api/product/" + id);
+    updateProduct: function (product, id) {
+        return axios.put("/api/product/single/" + id, product);
+    },
+    deleteProduct: function (id) {
+        return axios.delete("/api/product/single/" + id);
     }
 }

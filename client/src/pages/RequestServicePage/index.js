@@ -4,8 +4,6 @@ import Alert from '@material-ui/lab/Alert';
 import API from "../../utils/API";
 import "./style.css";
 
-
-
 export default function RequestServicePage() {
   const [requestInfo, setRequestInfo] = useState({});
   const [open, setOpen] = useState(false);
@@ -60,8 +58,8 @@ export default function RequestServicePage() {
         <Grid item>
           <TextField
             name="problem"
-            value={requestInfo.problem ? requestInfo.problem : ""} 
-            onChange={handleInputChange} 
+            value={requestInfo.problem ? requestInfo.problem : ""}
+            onChange={handleInputChange}
             label="Problem مشکل"
             multiline
             rows={4}
@@ -70,9 +68,9 @@ export default function RequestServicePage() {
         <Grid item>
           <Button variant="contained" color="primary" type="submit">Send Request</Button>
         </Grid>
-        { open 
-          ? <Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert>
-          // ? <Snackbar open={open} anchorOrigin={{vertical: "bottom", horizontal: "right"}} key="bottomright" autoHideDuration={6000} onClose={handleClose}><Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert></Snackbar>
+        {open
+          // ? <Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert>
+          ? <Snackbar open={open} anchorOrigin={{ vertical: "bottom", horizontal: "right" }} key="bottomright" autoHideDuration={6000} onClose={handleClose}><Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert></Snackbar>
           : null
         }
       </Grid>

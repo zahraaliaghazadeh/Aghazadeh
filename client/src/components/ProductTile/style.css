@@ -1,0 +1,19 @@
+.ProductTile {
+    max-width: 345px;
+}
+
+.ProductTile .MuiCard-root {
+    background: none;
+}
+
+.ProductTile .MuiPaper-elevation1 {
+    box-shadow: none;
+}
+
+.ProductTile .MuiPaper-rounded {
+    border-radius: 0;
+}
+
+.ProductTile .media {
+    height: 140px;
+} 

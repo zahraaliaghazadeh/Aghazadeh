@@ -14,6 +14,9 @@ export default {
         return axios.delete("/api/product/single/" + id);
     },
     search: function (query) {
-        return axios.get("/api/product/search", query)
+        return axios.get("/api/product/search", query);
+    },
+    sendServiceRequest: function (details) {
+        return axios.post("/send", details);
     }
 }

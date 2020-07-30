@@ -72,8 +72,8 @@ To use this application, you can [click here](https://fitnesstrackeryalda.heroku
 #### npm packages used:
 
  * [axios](https://www.npmjs.com/package/axios)
- * [node mailer]()
- * [Material UI]()
+ * [node mailer](https://www.npmjs.com/package/nodemailer)
+ * [Material UI/core](https://www.npmjs.com/package/@material-ui/core)
  * [dotenv](https://www.npmjs.com/package/dotenv)
  * [express](https://www.npmjs.com/package/express)
 

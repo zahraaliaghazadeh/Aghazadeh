@@ -11,14 +11,14 @@ router.post("/send", function (req, res) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_TEST,
-      pass: process.env.EMAIL_PASSWORD_TEST
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD
     }
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_TEST,
-    to: process.env.EMAIL_TEST,
+    from: process.env.EMAIL,
+    to: process.env.EMAIL,
     subject: `Service Request - ${req.body.device} ${req.body.brand}`,
     text: `
         Name: ${req.body.name}

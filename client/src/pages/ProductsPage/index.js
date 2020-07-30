@@ -7,7 +7,7 @@ import "./style.css"
 export default function ProductsPage() {
   return (
     <div className="ProductsPage">
-      <ProductTile name="test" brand="test" price={80} />
+      <ProductTile name="test" brand="test" price={80} quantity={10} />
     </div>
 
   );

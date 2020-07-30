@@ -69,6 +69,20 @@ Upon clicking on the link above, you can create a user and password in the app a
 To use this application, you can [click here](https://fitnesstrackeryalda.herokuapp.com/)
 
 
+#### npm packages used:
+
+ * [axios](https://www.npmjs.com/package/axios)
+ * [node mailer]()
+ * [Material UI]()
+ * [dotenv](https://www.npmjs.com/package/dotenv)
+ * [express](https://www.npmjs.com/package/express)
+
+
+#### Other Technologies used:
+* For photo upload [cloudinary](https://cloudinary.com/)
+
+
+
 ## Credits
 
 

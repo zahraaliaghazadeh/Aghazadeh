@@ -3,7 +3,7 @@ import ProductInfoForm from "../../components/ProductInfoForm"
 import API from "../../utils/API"
 import "./style.css"
 
-export default function AddProductPage() {
+export default function AdminAddProductPage() {
     const [productInfo, setProductInfo] = useState({});
 
     const handleInputChange = async (event, remove) => {
@@ -52,7 +52,7 @@ export default function AddProductPage() {
     }
 
     return (
-        <div className="AddProductPage">
+        <div className="AdminAddProductPage">
             <ProductInfoForm {...productInfo} formType="new" handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>
         </div>
     );

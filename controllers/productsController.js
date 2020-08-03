@@ -36,7 +36,7 @@ module.exports = {
     },
     search: function (req, res) {
         db.Product
-            .find({ name: new RegExp(req.body.search, "i") })
+            .find({ name: new RegExp(req.params.query, "i") })
             // .find( { name : { $regex : req.body.search, $options : 'i' } } )
             .then(product => res.json(product))
             .catch(err => res.status(422).json(err))

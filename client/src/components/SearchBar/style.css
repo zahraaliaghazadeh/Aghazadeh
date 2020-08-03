@@ -1,0 +1,9 @@
+.SearchBar {
+    background-color: rgb(212, 211, 211);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.SearchBar .MuiInputBase-root {
+    width: 100%;
+}

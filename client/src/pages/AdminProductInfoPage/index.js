@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 
-export default function ProductInfoPage(props) {
+export default function AdminProductInfoPage(props) {
     const [productInfo, setProductInfo] = useState({});
 
     const handleInputChange = async (event, remove) => {
@@ -58,7 +58,7 @@ export default function ProductInfoPage(props) {
     }
 
     return (
-        <div className="AddProductPage">
+        <div className="AdminProductInfoPage">
             <ProductInfoForm {...productInfo} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleRemove={handleRemove} />
         </div>
     );

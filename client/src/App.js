@@ -5,13 +5,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 // importing pages
 import ProductsPage from "./pages/ProductsPage";
-import RequestServicePage from "./pages/RequestServicePage"
-import ServiceDeptPage from "./pages/ServiceDeptPage"
+import RequestServicePage from "./pages/RequestServicePage";
+import ServiceDeptPage from "./pages/ServiceDeptPage";
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
 import ContactPage from './pages/ContactPage';
-import AddProductPage from "./pages/AddProductPage"
-import AboutPage from "./pages/AboutPage"
+import AdminAddProductPage from "./pages/AdminAddProductPage";
+import AboutPage from "./pages/AboutPage";
+import AdminDashboard from "./pages/AdminDashboard"
 
 // importing components
 import Navbar from "./components/Navbar"
@@ -49,7 +50,10 @@ function App() {
         </Route>
         <div id="adminContainer">
           <Route exact path="/admin/new">
-            <AddProductPage />
+            <AdminAddProductPage />
+          </Route>
+          <Route exact path="/admin">
+            <AdminDashboard />
           </Route>
         </div>
         <Route exact path="*">

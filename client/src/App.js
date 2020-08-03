@@ -48,14 +48,14 @@ function App() {
         <Route exact path="/about">
           <AboutPage />
         </Route>
-        <div id="adminContainer">
+        {/* <div id="adminContainer"> */}
           <Route exact path="/admin/new">
             <AdminAddProductPage />
           </Route>
           <Route exact path="/admin">
             <AdminDashboard />
           </Route>
-        </div>
+        {/* </div> */}
         <Route exact path="*">
           <SplashPage />
         </Route>

@@ -7,11 +7,12 @@ export default function ProductTile(props) {
     return (
         <div className="ProductTile">
             <Card>
-                <CardActionArea>
+                <CardActionArea onClick={() => props.handleClick(props._id)} data-id={props._id} >
                     <CardMedia
                         className="media"
                         image={props.image ? props.image : placeholder}
-                        title={props.image ? `${props.name} by ${props.brand}` : "place holder image"}
+                        title={props.image ? `${props.name} by ${props.brand}` : "placeholder image"}
+                        
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">{props.name}</Typography>

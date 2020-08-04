@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import { Grid } from "@material-ui/core";
 import Searchbar from "../../components/SearchBar";
 import ProductTile from "../../components/ProductTile";
@@ -8,6 +9,7 @@ export default function AdminDashboard() {
     const [query, setQuery] = useState("");
     const [message, setMessage] = useState("");
     const [results, setResults] = useState([]);
+    const history = useHistory();
 
     const handleInputChange = event => {
         setQuery(event.target.value);
@@ -22,9 +24,14 @@ export default function AdminDashboard() {
                     const { data } = await API.search(value);
                     setResults([]);
                     console.log(data)
-                    data.length > 0 ? setResults(data) : setMessage("No Products Found");
-                    
-                    // setQuery("");
+
+                    if (data.length > 0) {
+                        setResults(data);
+                        setQuery("");
+                    } 
+                    else {
+                        setMessage("No Products Found");  
+                    } 
                 } catch (error) {
                     console.log(error);
                 }
@@ -32,9 +39,14 @@ export default function AdminDashboard() {
         }
     }
 
+    const handleClick = id => {
+        // console.log(id)
+        history.push("/admin/product/" + id);
+    }
+
     const productResults = (
         <Grid container spacing={2}>
-            {results.map(result => <Grid item sm={4} md={3} key={result._id}><ProductTile {...result} /></Grid>)}
+            {results.map(result => <Grid item sm={4} md={3} key={result._id}><ProductTile {...result} handleClick={handleClick} /></Grid>)}
         </Grid>
     );
 

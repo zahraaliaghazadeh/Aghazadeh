@@ -13,7 +13,7 @@ router.route("/single/:id")
     .delete(productsController.remove);
 
 // Product route for /api/product/search
-router.route("/search")
+router.route("/search/:query")
     .get(productsController.search)
 
 module.exports = router;

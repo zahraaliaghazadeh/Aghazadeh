@@ -4,15 +4,23 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 // importing pages
-import ProductsPage from "./pages/ProductsPage";
+import AboutPage from "./pages/AboutPage";
+import AdminAddProductPage from "./pages/AdminAddProductPage";
+import AdminDashboard from "./pages/AdminDashboard"
+import AdminProductInfoPage from './pages/AdminProductInfoPage';
+import ContactPage from './pages/ContactPage';
 import RequestServicePage from "./pages/RequestServicePage";
 import ServiceDeptPage from "./pages/ServiceDeptPage";
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
+<<<<<<< HEAD
 import ContactPage from './pages/ContactPage';
 import AdminAddProductPage from "./pages/AdminAddProductPage";
 import AboutPage from "./pages/AboutPage";
 // import AdminDashboard from "./pages/AdminDashboard"
+=======
+import ProductsPage from "./pages/ProductsPage";
+>>>>>>> 9fdc149d2f4ffe74fbf3e607e1bf35d7f1a71116
 
 // importing components
 import Navbar from "./components/Navbar"
@@ -27,31 +35,33 @@ function App() {
     // all the routes
     <Router>
       <Navbar />
-      <Switch>
-        <Route exact path="/products">
-          <ProductsPage />
-        </Route>
-        <Route exact path="/request">
-          <RequestServicePage />
-        </Route>
+      <div className="container">
 
-        <Route exact path="/services">
-          < ServiceDeptPage />
-        </Route>
+        <Switch>
+          <Route exact path="/products">
+            <ProductsPage />
+          </Route>
+          <Route exact path="/request">
+            <RequestServicePage />
+          </Route>
 
-        <Route exact path="/signup">
-          <SignUpPage />
-        </Route>
-        <Route exact path="/contact">
-          <ContactPage />
-        </Route>
-        <Route exact path="/about">
-          <AboutPage />
-        </Route>
-        {/* <div id="adminContainer"> */}
+          <Route exact path="/services">
+            < ServiceDeptPage />
+          </Route>
+
+          <Route exact path="/signup">
+            <SignUpPage />
+          </Route>
+          <Route exact path="/contact">
+            <ContactPage />
+          </Route>
+          <Route exact path="/about">
+            <AboutPage />
+          </Route>
           <Route exact path="/admin/new">
             <AdminAddProductPage />
           </Route>
+<<<<<<< HEAD
           {/* <Route exact path="/admin">
             <AdminDashboard />
           </Route> */}
@@ -62,6 +72,21 @@ function App() {
 
       </Switch>
       {/* <Footer /> */}
+=======
+          <Route exact path="/admin/product/:id">
+            <AdminProductInfoPage />
+          </Route>
+          <Route exact path="/admin">
+            <AdminDashboard />
+          </Route>
+          <Route exact path="*">
+            <SplashPage />
+          </Route>
+
+        </Switch>
+      </div>
+      <Footer />
+>>>>>>> 9fdc149d2f4ffe74fbf3e607e1bf35d7f1a71116
     </Router>
   );
 }

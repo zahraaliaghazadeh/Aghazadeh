@@ -4,9 +4,10 @@ html {
 
 body {
     margin-bottom: 100px;
+    
 }
 
-#adminContainer {
-    width: 80%;
+.container {
+    width: 90%;
     margin: 0 auto;
 }

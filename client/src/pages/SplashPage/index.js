@@ -10,6 +10,10 @@ import { Card, CardActions, CardContent, Button, Typography } from '@material-ui
 
 // --end of import for card
 
+
+// import refrigerator1 from '../assets/images/refrigerator1.jpg'
+
+
 // -----for card style
 const useStyles = makeStyles({
   root: {
@@ -31,6 +35,8 @@ export default function SplashPage() {
 
   return (
     <div className="splashCards">
+
+      {/* <img src={refrigerator1} alt="refrigerator1"/> */}
 
 
       {/* sales */}

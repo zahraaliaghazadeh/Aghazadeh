@@ -12,7 +12,7 @@ import SplashPage from './pages/SplashPage';
 import ContactPage from './pages/ContactPage';
 import AdminAddProductPage from "./pages/AdminAddProductPage";
 import AboutPage from "./pages/AboutPage";
-import AdminDashboard from "./pages/AdminDashboard"
+// import AdminDashboard from "./pages/AdminDashboard"
 
 // importing components
 import Navbar from "./components/Navbar"
@@ -52,16 +52,16 @@ function App() {
           <Route exact path="/admin/new">
             <AdminAddProductPage />
           </Route>
-          <Route exact path="/admin">
+          {/* <Route exact path="/admin">
             <AdminDashboard />
-          </Route>
+          </Route> */}
         {/* </div> */}
         <Route exact path="*">
           <SplashPage />
         </Route>
 
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

@@ -61,18 +61,6 @@ function App() {
           <Route exact path="/admin/new">
             <AdminAddProductPage />
           </Route>
-<<<<<<< HEAD
-          {/* <Route exact path="/admin">
-            <AdminDashboard />
-          </Route> */}
-        {/* </div> */}
-        <Route exact path="*">
-          <SplashPage />
-        </Route>
-
-      </Switch>
-      {/* <Footer /> */}
-=======
           <Route exact path="/admin/product/:id">
             <AdminProductInfoPage />
           </Route>
@@ -86,7 +74,6 @@ function App() {
         </Switch>
       </div>
       <Footer />
->>>>>>> 9fdc149d2f4ffe74fbf3e607e1bf35d7f1a71116
     </Router>
   );
 }

@@ -13,14 +13,11 @@ import RequestServicePage from "./pages/RequestServicePage";
 import ServiceDeptPage from "./pages/ServiceDeptPage";
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
-<<<<<<< HEAD
 import ContactPage from './pages/ContactPage';
 import AdminAddProductPage from "./pages/AdminAddProductPage";
 import AboutPage from "./pages/AboutPage";
 // import AdminDashboard from "./pages/AdminDashboard"
-=======
 import ProductsPage from "./pages/ProductsPage";
->>>>>>> 9fdc149d2f4ffe74fbf3e607e1bf35d7f1a71116
 
 // importing components
 import Navbar from "./components/Navbar"

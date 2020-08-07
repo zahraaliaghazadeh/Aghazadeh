@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ProductInfoForm from "../../components/ProductInfoForm"
 import API from "../../utils/API";
 
 export default function AdminProductInfoPage(props) {
     const [productInfo, setProductInfo] = useState({});
+    const { id } = useParams();
+
+    useEffect(() => {
+        setProductInfo(props.location.state);
+        // console.log(props.location.state)
+    });
 
     const handleInputChange = async (event, remove) => {
         const { name, value } = event.target;
@@ -16,7 +24,7 @@ export default function AdminProductInfoPage(props) {
     }
 
     const handleRemove = () => {
-        API.deleteProduct() // TODO: pass id 
+        API.deleteProduct(id)
             .then(({ data }) => console.log(data))
             .catch(err => console.log(err));
 
@@ -46,9 +54,11 @@ export default function AdminProductInfoPage(props) {
                 console.log(file);
                 image = file.secure_url;
             }
+
+            console.log(productInfo)
             
-            const { data } = await API.updateProduct({ ...productInfo, image: image }); // TODO: pass id
-            console.log(data);
+            // const { data } = await API.updateProduct({ ...productInfo, image: image }, id); // TODO: pass id
+            // console.log(data);
 
             setProductInfo({});
 

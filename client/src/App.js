@@ -13,10 +13,7 @@ import RequestServicePage from "./pages/RequestServicePage";
 import ServiceDeptPage from "./pages/ServiceDeptPage";
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
-import ContactPage from './pages/ContactPage';
-import AdminAddProductPage from "./pages/AdminAddProductPage";
-import AboutPage from "./pages/AboutPage";
-// import AdminDashboard from "./pages/AdminDashboard"
+
 import ProductsPage from "./pages/ProductsPage";
 
 // importing components

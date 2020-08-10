@@ -2,5 +2,10 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    background-color: yellow;
+    /* background-color: yellow; */
+    /* yalda made change */
+    background-color: #caf0f8;
+    width: 50%;
+    position: 0 auto;
 }
+

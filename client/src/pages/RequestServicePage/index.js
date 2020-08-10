@@ -41,7 +41,7 @@ export default function RequestServicePage() {
           <TextField required name="name" value={requestInfo.name ? requestInfo.name : ""} onChange={handleInputChange} label="Name نام" />
         </Grid>
         <Grid item>
-          <TextField required name="email" value={requestInfo.email ? requestInfo.email : ""} onChange={handleInputChange} label="Email " />
+          <TextField required name="email" value={requestInfo.email ? requestInfo.email : ""} onChange={handleInputChange} label="Email ایمیل " />
         </Grid>
         <Grid item>
           <TextField required name="phone" value={requestInfo.phone ? requestInfo.phone : ""} onChange={handleInputChange} label="Phone Number شماره تلفن" />
@@ -53,7 +53,10 @@ export default function RequestServicePage() {
           <TextField required name="brand" value={requestInfo.brand ? requestInfo.brand : ""} onChange={handleInputChange} label="Brand برند" />
         </Grid>
         <Grid item>
-          <TextField required name="address" value={requestInfo.address ? requestInfo.address : ""} onChange={handleInputChange} label="Address آدرس" />
+          <TextField required name="age" value={requestInfo.age ? requestInfo.age : ""} onChange={handleInputChange} label="How long have you had this device? مدت زمان داشتن دستگاه" />
+        </Grid>
+        <Grid item>
+          <TextField required name="address" value={requestInfo.address ? requestInfo.address : ""} onChange={handleInputChange} label="Address آدرس دقیق" />
         </Grid>
         <Grid item>
           <TextField

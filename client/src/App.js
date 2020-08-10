@@ -13,6 +13,7 @@ import RequestServicePage from "./pages/RequestServicePage";
 import ServiceDeptPage from "./pages/ServiceDeptPage";
 import SignUpPage from "./pages/SignUpPage";
 import SplashPage from './pages/SplashPage';
+
 import ProductsPage from "./pages/ProductsPage";
 
 // importing components
@@ -66,7 +67,7 @@ function App() {
 
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

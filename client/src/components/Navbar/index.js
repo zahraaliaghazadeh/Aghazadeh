@@ -24,13 +24,13 @@ export default function Navbar(props) {
  خدمات</a></li>
                 <li><a href="/request">Request<br></br>
  درخواست</a></li>
-                <li><a href="/signup">Sign Up<br></br>
- حساب کاربری</a></li>
+                {/* <li><a href="/signup">Sign Up<br></br>
+ حساب کاربری</a></li> */}
                 <li><a href="/about">About<br></br>
  درباره ما</a></li>
-                <Button variant="contained" color="primary">
+                {/* <Button variant="contained" color="primary">
                     SignUp/Login<br></br>
-                        ورود به حساب کاربری </Button>
+                        ورود به حساب کاربری </Button> */}
 
             </ul>
         </nav>

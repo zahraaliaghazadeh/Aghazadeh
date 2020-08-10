@@ -10,9 +10,15 @@
 }
 
 #salesCard , #serviceCard{
-    background-color: darkgrey;
+    /* background-color: darkgrey; */
+    background-color: #9a8c98;
     height: 300px;
     text-align: center;
     align-content: center;
 
+}
+
+.refrigerator1{
+    height: 400px;
+    width: 500px;
 }

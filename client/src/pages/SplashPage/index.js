@@ -10,6 +10,10 @@ import { Card, CardActions, CardContent, Button, Typography } from '@material-ui
 
 // --end of import for card
 
+
+import refrigerator1 from '../../assets/images/refrigerator1.jpg'
+
+
 // -----for card style
 const useStyles = makeStyles({
   root: {
@@ -32,6 +36,8 @@ export default function SplashPage() {
   return (
     <div className="splashCards">
 
+      <img src={refrigerator1} alt="refrigerator1" className="refrigerator1"/>
+
 
       {/* sales */}
       <Card id="salesCard" className={classes.root}>
@@ -43,7 +49,7 @@ export default function SplashPage() {
 
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          {/* <Button size="small">Learn More</Button> */}
         </CardActions>
       </Card>
 
@@ -55,11 +61,12 @@ export default function SplashPage() {
           <Typography variant="h5" component="h2">
            Service تعمیرگاه
         </Typography>
-        
+        <li><a href="/request">Request<br></br>
+ درخواست</a></li>
 
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          {/* <Button size="small">Learn More</Button> */}
         </CardActions>
       </Card>
     </div>

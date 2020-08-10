@@ -28,7 +28,7 @@ router.post("/send", function (req, res) {
 
         Device: ${req.body.device}
         Brand: ${req.body.brand}
-        
+        age: ${req.body.age}
         ${req.body.problem}
     `
   };

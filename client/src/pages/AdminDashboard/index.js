@@ -28,10 +28,10 @@ export default function AdminDashboard() {
                     if (data.length > 0) {
                         setResults(data);
                         setQuery("");
-                    } 
+                    }
                     else {
-                        setMessage("No Products Found");  
-                    } 
+                        setMessage("No Products Found");
+                    }
                 } catch (error) {
                     console.log(error);
                 }
@@ -39,9 +39,28 @@ export default function AdminDashboard() {
         }
     }
 
-    const handleClick = id => {
+    const handleClick = productInfo => {
         // console.log(id)
-        history.push("/admin/product/" + id);
+        // history.push("/admin/product/" + id);
+        // history.push({
+        //     pathname: "/admin/product/" + productInfo._id,
+        //     state: "hello"
+        // })
+
+        console.log(productInfo)
+
+        history.push(
+            "/admin/product/" + productInfo._id,
+            {
+                brand: productInfo.brand,
+                category: productInfo.category,
+                description: productInfo.description,
+                image: productInfo.image,
+                name: productInfo.name,
+                price: productInfo.price,
+                quantity: productInfo.quantity
+            }
+        );
     }
 
     const productResults = (

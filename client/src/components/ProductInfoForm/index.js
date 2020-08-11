@@ -69,8 +69,8 @@ export default function ProductInfoForm(props) {
                 <Grid container item xs={12}>
                     <Grid item xs={12} sm={6}>
                         <div id="imgContainer">
-                            {picture
-                                ? <img src={picture} alt={picture && props.name ? props.name + "image" : ""} />
+                            {picture || props.image
+                                ? <img src={picture || props.image} alt={(props.image || picture) && props.name ? props.name + "image" : ""} />
                                 : <h3>Product Image Preview</h3>
                             }
                             {/* {props.picture

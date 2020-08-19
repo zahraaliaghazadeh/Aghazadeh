@@ -22,7 +22,7 @@ module.exports = {
     },
     update: function (req, res) {
         db.Product
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             .then(product => res.json(product))
             .catch(err => res.status(422).json(err))
 

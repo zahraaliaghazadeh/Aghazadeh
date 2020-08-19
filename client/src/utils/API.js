@@ -4,6 +4,9 @@ export default {
     getProducts: function () {
         return axios.get("/api/product")
     },
+    getSingleProduct: function (id) {
+        return axios.get("/api/product/single/" + id)
+    },
     createProduct: function (product) {
         return axios.post("/api/product", product);
     },

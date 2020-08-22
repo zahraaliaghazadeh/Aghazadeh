@@ -40,15 +40,8 @@ export default function AdminDashboard() {
     }
 
     const handleClick = productInfo => {
-        // console.log(id)
-        // history.push("/admin/product/" + id);
-        // history.push({
-        //     pathname: "/admin/product/" + productInfo._id,
-        //     state: "hello"
-        // })
 
-        console.log(productInfo)
-
+        // push object to state, but won't display if user goes straight to page
         history.push(
             "/admin/product/" + productInfo._id,
             {
@@ -61,6 +54,8 @@ export default function AdminDashboard() {
                 quantity: productInfo.quantity
             }
         );
+
+        // history.push("/admin/product/" + productInfo._id);
     }
 
     const productResults = (

@@ -20,12 +20,17 @@ export default function AdminProductInfoPage() {
     };
 
     useEffect(() => {
-        // console.log(location.state)
-        // setProductInfo(Object.assign({}, location.state));
-
-        API.getSingleProduct(id)
-            .then(({ data }) => setProductInfo(data))
-            .catch(err => console.log(err))
+        // if coming from admin search page, get product info from
+        // state object passed. If user enters the exact url for
+        // the product, get product info from API
+        if (location.state) {
+            setProductInfo(Object.assign({}, location.state));
+        }
+        else {
+            API.getSingleProduct(id)
+                .then(({ data }) => setProductInfo(data))
+                .catch(err => console.log(err))
+        }
     }, []);
 
     const handleInputChange = async (event, remove) => {
@@ -95,5 +100,5 @@ export default function AdminProductInfoPage() {
                 : null
             }
         </div>
-    );
+    ); 
 }

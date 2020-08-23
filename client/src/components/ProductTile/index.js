@@ -7,7 +7,7 @@ export default function ProductTile(props) {
     return (
         <div className="ProductTile">
             <Card>
-                <CardActionArea onClick={() => props.handleClick(props._id)} data-id={props._id} >
+                <CardActionArea onClick={() => props.handleClick(props)}>
                     <CardMedia
                         className="media"
                         image={props.image ? props.image : placeholder}

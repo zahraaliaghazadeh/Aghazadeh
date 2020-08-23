@@ -33,16 +33,13 @@ export default function AdminProductInfoPage() {
         }
     }, []);
 
-    const handleInputChange = async (event, remove) => {
+    const handleInputChange = async (event, action) => {
         const { name, value } = event.target;
 
-        // console.log(name, value)
-
-        if (remove) {
-            setProductInfo({ ...productInfo, picture: null });
+        if (action) {
+            setProductInfo({ ...productInfo, picture: action === "remove" ? null : productInfo.image });
         }
         else {
-            // console.log(productInfo[name])
             setProductInfo({ ...productInfo, [name]: name === "picture" ? event.target.files[0] : value });
         }
     }
@@ -78,12 +75,14 @@ export default function AdminProductInfoPage() {
                 console.log(file);
                 image = file.secure_url;
             }
+            else if (productInfo.image && !productInfo.picture) {
+                image = null;
+            }
 
-            console.log(productInfo)
+            // console.log(productInfo)
 
-            const { data } = await API.updateProduct({...productInfo, image: image }, id); 
-            // const { data } = await API.updateProduct(productInfo, id); 
-            console.log(data);
+            const { data } = await API.updateProduct({...productInfo, image: image }, id);
+            // console.log(data);
             history.replace(location.pathname, data);
             setOpen(true);
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { Snackbar } from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert';
-import ProductInfoForm from "../../components/ProductInfoForm"
+import { useParams, useLocation, useHistory } from "react-router-dom";
+import ProductInfoForm from "../../components/ProductInfoForm";
+import SuccessMessage from "../../components/SuccessMessage";
 import API from "../../utils/API";
 
 export default function AdminProductInfoPage() {
     const [productInfo, setProductInfo] = useState();
     const { id } = useParams();
     const location = useLocation();
+    const history = useHistory();
     const [open, setOpen] = useState(false);
 
     const handleClose = (event, reason) => {
@@ -84,6 +84,7 @@ export default function AdminProductInfoPage() {
             // const { data } = await API.updateProduct({ ...productInfo, image: image }, id); // TODO: pass id
             const { data } = await API.updateProduct(productInfo, id); // TODO: pass id
             console.log(data);
+            history.replace(location.pathname, data);
             setOpen(true);
 
         } catch (error) {
@@ -94,11 +95,7 @@ export default function AdminProductInfoPage() {
     return (
         <div className="AdminProductInfoPage">
             <ProductInfoForm {...productInfo} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleRemove={handleRemove} />
-            {open
-                // ? <Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert>
-                ? <Snackbar open={open} anchorOrigin={{ vertical: "bottom", horizontal: "right" }} key="bottomright" autoHideDuration={6000} onClose={handleClose}><Alert icon={false} onClose={handleClose} variant="filled" severity="success">Product Info updated!</Alert></Snackbar>
-                : null
-            }
+            {open ? <SuccessMessage open={open} handleClose={handleClose} message="Product Info updated!" /> : null}
         </div>
     ); 
 }

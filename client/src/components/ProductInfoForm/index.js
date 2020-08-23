@@ -23,36 +23,24 @@ export default function ProductInfoForm(props) {
 
     useEffect(() => {
         if (props.picture) {
-            const reader = new FileReader();
-
-            reader.readAsDataURL(props.picture)
-            reader.onload = () => setPicture(reader.result);
-            // setPicture(URL.createObjectURL(e.target.files[0]))
+            if (typeof props.picture !== "string") {
+                const reader = new FileReader();
+    
+                reader.readAsDataURL(props.picture)
+                reader.onload = () => {
+                    setPicture(reader.result)};
+                // setPicture(URL.createObjectURL(e.target.files[0]))
+            }
+            else {
+                setPicture(props.image)
+            }
         }
         else {
             setPicture();
         }
-
     }, [props.picture])
 
-
-    // Function to upload image on add product
-
-    // const uploadFile = async e => {
-    //     const file = e.target.files[0];
-
-    //     if (file) {
-    //         const reader = new FileReader();
-
-    //         reader.readAsDataURL(file)
-    //         reader.onload = () => setPicture(reader.result);
-    //         props.handleInputChange(e);
-    //      // setPicture(URL.createObjectURL(e.target.files[0]))
-    //     }
-    // }
-
     const removeFile = e => {
-        // setPicture();
         props.handleInputChange(e, "remove")
     }
 
@@ -69,14 +57,10 @@ export default function ProductInfoForm(props) {
                 <Grid container item xs={12}>
                     <Grid item xs={12} sm={6}>
                         <div id="imgContainer">
-                            {picture || props.image
-                                ? <img src={picture || props.image} alt={(props.image || picture) && props.name ? props.name + "image" : ""} />
-                                : <h3>Product Image Preview</h3>
-                            }
-                            {/* {props.picture
-                                ? <img src={props.picture ? props.picture : ""} alt={props.picture && props.name ? props.name + "image" : ""} />
+                            {picture
+                                ? <img src={picture} alt={picture && props.name ? props.name + "image" : ""} />
                                 : <h3>Click to add a product image</h3>
-                            } */}
+                            }
                         </div>
                         <input
                             accept="image/*"
@@ -86,7 +70,6 @@ export default function ProductInfoForm(props) {
                             name="picture"
                             key={Math.random(1000)}
                             onChange={props.handleInputChange}
-                            // onChange={uploadFile}
                             hidden
                         />
                         <label htmlFor="productImage">

@@ -24,7 +24,7 @@ export default function AdminProductInfoPage() {
         // state object passed. If user enters the exact url for
         // the product, get product info from API
         if (location.state) {
-            setProductInfo(Object.assign({}, location.state));
+            setProductInfo(Object.assign({}, location.state, { picture: location.state.image }));
         }
         else {
             API.getSingleProduct(id)
@@ -58,31 +58,31 @@ export default function AdminProductInfoPage() {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        let image;
+        let image = productInfo.image;
 
         try {
-            // if (productInfo.picture && typeof productInfo.picture === "object") {
-            //     const formData = new FormData();
-            //     formData.append("file", productInfo.picture);
-            //     // this data/preset is required by cloudinary (named sick fits in the cloudinary settings)
-            //     formData.append("upload_preset", "k0kdipbb");
-            //     const res = await fetch(
-            //         "https://api.cloudinary.com/v1_1/dw69fw1u3/image/upload",
-            //         {
-            //             method: "POST",
-            //             body: formData
-            //         }
-            //     );
+            if (productInfo.picture && typeof productInfo.picture === "object") {
+                const formData = new FormData();
+                formData.append("file", productInfo.picture);
+                // this data/preset is required by cloudinary (named sick fits in the cloudinary settings)
+                formData.append("upload_preset", "k0kdipbb");
+                const res = await fetch(
+                    "https://api.cloudinary.com/v1_1/dw69fw1u3/image/upload",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
 
-            //     const file = await res.json();
-            //     console.log(file);
-            //     image = file.secure_url;
-            // }
+                const file = await res.json();
+                console.log(file);
+                image = file.secure_url;
+            }
 
-            // console.log(productInfo)
+            console.log(productInfo)
 
-            // const { data } = await API.updateProduct({ ...productInfo, image: image }, id); // TODO: pass id
-            const { data } = await API.updateProduct(productInfo, id); // TODO: pass id
+            const { data } = await API.updateProduct({...productInfo, image: image }, id); 
+            // const { data } = await API.updateProduct(productInfo, id); 
             console.log(data);
             history.replace(location.pathname, data);
             setOpen(true);

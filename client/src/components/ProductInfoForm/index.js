@@ -40,10 +40,13 @@ export default function ProductInfoForm(props) {
         }
     }, [props.picture])
 
-    const removeFile = e => {
-        props.handleInputChange(e, "remove")
+    const removeFile = event => {
+        props.handleInputChange(event, "remove");
     }
 
+    const revertFile = event => {
+        props.handleInputChange(event, "revert");
+    }
 
     return (
         <form id="ProductInfoForm" onSubmit={props.handleSubmit}>
@@ -78,7 +81,11 @@ export default function ProductInfoForm(props) {
                             </Button>
                         </label>
                         {picture
-                            ? <Button variant="contained" color="primary" component="span" onClick={removeFile}>Remove Product Image</Button>
+                            ? <Button variant="contained" color="primary" component="span" name="remove" onClick={removeFile}>Remove Product Image</Button>
+                            : <></>
+                        }
+                        {props.image && typeof picture !== "string"
+                            ? <Button variant="contained" color="primary" component="span" name="revert" onClick={revertFile}>Original Product Image</Button>
                             : <></>
                         }
                     </Grid>

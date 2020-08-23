@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Grid, Snackbar, TextField } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { Button, Grid, TextField } from '@material-ui/core';
+import SuccessMessage from "../../components/SuccessMessage";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -71,11 +71,7 @@ export default function RequestServicePage() {
         <Grid item>
           <Button variant="contained" color="primary" type="submit">Send Request</Button>
         </Grid>
-        {open
-          // ? <Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert>
-          ? <Snackbar open={open} anchorOrigin={{ vertical: "bottom", horizontal: "right" }} key="bottomright" autoHideDuration={6000} onClose={handleClose}><Alert icon={false} onClose={handleClose} variant="filled" severity="success">Your request has been successfully sent!</Alert></Snackbar>
-          : null
-        }
+        {open ? <SuccessMessage open={open} handleClose={handleClose} message="Your request has been successfully sent!" /> : null}
       </Grid>
     </form>
   )

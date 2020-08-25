@@ -28,7 +28,7 @@ export default function AdminProductInfoPage() {
         }
         else {
             API.getSingleProduct(id)
-                .then(({ data }) => setProductInfo(data))
+                .then(({ data }) => setProductInfo(Object.assign({}, data, { picture: data.image })))
                 .catch(err => console.log(err))
         }
     }, []);

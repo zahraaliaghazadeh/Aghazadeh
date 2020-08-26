@@ -134,7 +134,7 @@ export default function ProductInfoForm(props) {
                 </Grid>
             </Grid>
             <Button variant="contained" type="submit">{props.formType ? "Add" : "Update"} Product</Button>
-            {!props.formType ? <Button variant="contained">Remove Product</Button> : <></>}
+            {!props.formType ? <Button variant="contained" onClick={props.handleRemove}>Remove Product</Button> : <></>}
         </form>
     );
 }

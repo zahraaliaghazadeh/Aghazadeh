@@ -44,12 +44,13 @@ export default function AdminProductInfoPage() {
         }
     }
 
-    const handleRemove = () => {
-        API.deleteProduct(id)
-            .then(({ data }) => console.log(data))
-            .catch(err => console.log(err));
-
-        // redirect
+    const handleRemove = async () => {
+        try {
+            await API.deleteProduct(id);
+            history.push("/admin");
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const handleSubmit = async event => {
